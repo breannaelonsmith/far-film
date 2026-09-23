@@ -1,13 +1,312 @@
-<!doctype html><html><head><meta charset="utf-8"><title>far-film</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-body{font:16px/1.45 -apple-system,Helvetica,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;background:#111;color:#eee}
-a{color:#8fd} .id{font-family:ui-monospace,monospace;color:#8fd}
-table{width:100%;border-collapse:collapse} th{text-align:left;width:40%;color:#888;padding:3px 8px 3px 0}
-article{border-top:1px solid #333;padding:22px 0} .notes{color:#aaa}
-</style></head><body>
-<h1>far-film</h1>
-<p>Shot is the gate; vibe is not.</p>
-<article><h2>establish_dusk_wide</h2><p class='id'>shot_ffdea1251b85f044 · REFUSED source_discipline</p><table><tr><th>shot_type</th><td>establishing</td></tr><tr><th>lens_mm</th><td>24</td></tr><tr><th>camera_move</th><td>static</td></tr><tr><th>focal_subject</th><td>ridgeline-against-sky</td></tr><tr><th>depth_layering</th><td>three-plane (foreground grass / mid ridge / sky)</td></tr><tr><th>light_logic</th><td>dusk-key-from-west, no fill, silhouette-safe</td></tr><tr><th>color_temp</th><td>4200K</td></tr><tr><th>frame_rate</th><td>24.0</td></tr><tr><th>aspect</th><td>2.39:1</td></tr><tr><th>sound_design</th><td>wind-bed + distant birds, no score</td></tr><tr><th>caption_density</th><td>none</td></tr><tr><th>transition_type</th><td>cut</td></tr><tr><th>sequence_role</th><td>establish</td></tr><tr><th>source_discipline</th><td>linked</td></tr><tr><th>banned_motifs</th><td>[]</td></tr><tr><th>royalty_mode</th><td>original</td></tr></table><p class='notes'>Open on land before any face. No score swell.</p></article>
-<article><h2>my_shot</h2><p class='id'>shot_a597a8b8471c9ff4 · OK</p><table><tr><th>shot_type</th><td>cu</td></tr><tr><th>lens_mm</th><td>50</td></tr><tr><th>camera_move</th><td>static</td></tr><tr><th>focal_subject</th><td>hands-on-table</td></tr><tr><th>depth_layering</th><td>two-plane</td></tr><tr><th>light_logic</th><td>window-key</td></tr><tr><th>color_temp</th><td>5600K</td></tr><tr><th>frame_rate</th><td>24.0</td></tr><tr><th>aspect</th><td>16:9</td></tr><tr><th>sound_design</th><td>room-tone</td></tr><tr><th>caption_density</th><td>none</td></tr><tr><th>transition_type</th><td>cut</td></tr><tr><th>sequence_role</th><td>beat</td></tr><tr><th>source_discipline</th><td>linked</td></tr><tr><th>banned_motifs</th><td>[]</td></tr><tr><th>royalty_mode</th><td>original</td></tr></table><p class='notes'>Hold on the hands.</p></article>
-<article><h2>reaction_ecu_handheld</h2><p class='id'>shot_191a6d806c876d5f · REFUSED source_discipline</p><table><tr><th>shot_type</th><td>ecu</td></tr><tr><th>lens_mm</th><td>85</td></tr><tr><th>camera_move</th><td>handheld</td></tr><tr><th>focal_subject</th><td>left eye + brow</td></tr><tr><th>depth_layering</th><td>subject sharp / background dissolve</td></tr><tr><th>light_logic</th><td>window-side key, bounce from page</td></tr><tr><th>color_temp</th><td>5600K</td></tr><tr><th>frame_rate</th><td>24.0</td></tr><tr><th>aspect</th><td>16:9</td></tr><tr><th>sound_design</th><td>room-tone only</td></tr><tr><th>caption_density</th><td>sparse</td></tr><tr><th>transition_type</th><td>cut</td></tr><tr><th>sequence_role</th><td>reaction</td></tr><tr><th>source_discipline</th><td>linked</td></tr><tr><th>banned_motifs</th><td>[]</td></tr><tr><th>royalty_mode</th><td>original</td></tr></table><p class='notes'>Hold until blink. Do not push in.</p></article><p><a href='https://github.com/breannaelonsmith/far-film'>source</a></p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>far-film — coverage</title>
+  <style>
+    :root {
+      --bg: #0c0c0e;
+      --panel: #16161a;
+      --line: #2a2a32;
+      --ink: #ecece8;
+      --dim: #8b8b86;
+      --ok: #7dffa3;
+      --bad: #ff6b6b;
+      --cut: #ffd36b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.45 "IBM Plex Sans", "Helvetica Neue", sans-serif;
+    }
+    header {
+      padding: 18px 22px 10px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    header h1 { font-size: 16px; font-weight: 600; margin: 0; letter-spacing: .04em; }
+    header p { margin: 0; color: var(--dim); font-size: 13px; }
+    header a { color: var(--ok); }
+    main { max-width: 980px; margin: 0 auto; padding: 18px 18px 80px; }
+    .scene {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+      margin-bottom: 16px;
+    }
+    .scene h2 { margin: 0 0 6px; font-size: 18px; }
+    .roles { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .role {
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .role.have { border-color: var(--ok); color: var(--ok); }
+    .log {
+      min-height: 28px;
+      font-family: ui-monospace, "IBM Plex Mono", monospace;
+      font-size: 13px;
+      margin: 10px 0 16px;
+      color: var(--dim);
+    }
+    .log.ok { color: var(--ok); }
+    .log.bad { color: var(--bad); }
+    .log.cut { color: var(--cut); }
+    .deck { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    button.card {
+      text-align: left;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: inherit;
+      padding: 14px 14px 12px;
+      cursor: pointer;
+      font: inherit;
+    }
+    button.card:hover:not(:disabled) { border-color: #555; }
+    button.card:disabled { opacity: .45; cursor: not-allowed; }
+    button.card .name { font-weight: 600; margin: 0 0 4px; }
+    button.card .id { font-family: ui-monospace, monospace; font-size: 11px; color: var(--ok); }
+    button.card dl { margin: 10px 0 0; display: grid; grid-template-columns: 42% 58%; gap: 2px 8px; font-size: 12px; }
+    button.card dt { color: var(--dim); }
+    button.card dd { margin: 0; }
+    .bar { display: flex; gap: 8px; margin: 18px 0 8px; }
+    .bar button {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 8px 12px;
+      cursor: pointer;
+      font: inherit;
+    }
+    .win {
+      display: none;
+      margin-top: 18px;
+      border: 1px solid var(--ok);
+      padding: 16px;
+    }
+    .win.show { display: block; }
+    .win ol { margin: 8px 0 0; padding-left: 18px; font-family: ui-monospace, monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FAR-FILM · COVERAGE</h1>
+    <p>Shot is the gate. <a href="https://github.com/breannaelonsmith/far-film">source</a></p>
+  </header>
+  <main>
+    <section class="scene">
+      <h2 id="scene-name"></h2>
+      <p id="scene-copy"></p>
+      <div class="roles" id="roles"></div>
+    </section>
+    <div class="log" id="log">play a card. vibe is refused.</div>
+    <div class="bar">
+      <button type="button" id="diff">cut.diff</button>
+      <button type="button" id="reset">reset</button>
+    </div>
+    <div class="deck" id="deck"></div>
+    <div class="win" id="win">
+      <strong>COVERED</strong>
+      <ol id="win-list"></ol>
+    </div>
+  </main>
+<script>
+const SCENE = {
+  name: "kitchen table, late afternoon",
+  copy: "Cover the room: establish, beat, reaction. Focal subject must exist. Same id or same role is refused.",
+  subjects: ["ridgeline-against-sky","hands-on-table","left eye + brow","speaker","window","page"],
+  required: ["establish","beat","reaction"],
+  temps: ["3200K","4200K","5600K"],
+};
+
+const DECK = [
+  {
+    file: "establish_dusk_wide.yaml",
+    shot_id: "shot_ffdea1251b85f044",
+    notes: "Open on land before any face. No score swell.",
+    sources: {axes: "field observation; no licensed LUT"},
+    axes: {
+      shot_type:"establishing", lens_mm:24, camera_move:"static",
+      focal_subject:"ridgeline-against-sky",
+      depth_layering:"three-plane", light_logic:"dusk-key-from-west",
+      color_temp:"4200K", frame_rate:24, aspect:"2.39:1",
+      sound_design:"wind-bed", caption_density:"none", transition_type:"cut",
+      sequence_role:"establish", source_discipline:"linked",
+      banned_motifs:[], royalty_mode:"original"
+    }
+  },
+  {
+    file: "my_shot.yaml",
+    shot_id: "shot_a597a8b8471c9ff4",
+    notes: "Hold on the hands.",
+    sources: {note:"desk test 2026-09-23"},
+    axes: {
+      shot_type:"cu", lens_mm:50, camera_move:"static",
+      focal_subject:"hands-on-table",
+      depth_layering:"two-plane", light_logic:"window-key",
+      color_temp:"5600K", frame_rate:24, aspect:"16:9",
+      sound_design:"room-tone", caption_density:"none", transition_type:"cut",
+      sequence_role:"beat", source_discipline:"linked",
+      banned_motifs:[], royalty_mode:"original"
+    }
+  },
+  {
+    file: "reaction_ecu_handheld.yaml",
+    shot_id: "shot_191a6d806c876d5f",
+    notes: "Hold until blink. Do not push in.",
+    sources: {axes:"on-set notes 2026-09-17"},
+    axes: {
+      shot_type:"ecu", lens_mm:85, camera_move:"handheld",
+      focal_subject:"left eye + brow",
+      depth_layering:"subject sharp / background dissolve",
+      light_logic:"window-side key",
+      color_temp:"5600K", frame_rate:24, aspect:"16:9",
+      sound_design:"room-tone", caption_density:"sparse", transition_type:"cut",
+      sequence_role:"reaction", source_discipline:"linked",
+      banned_motifs:[], royalty_mode:"original"
+    }
+  }
+];
+
+const BANNED = ["make it cinematic","cinematic vibe","house look","generic ai footage"];
+
+let taken = [];
+
+function cutDiff(a, b) {
+  const notes = [];
+  if (a.shot_id === b.shot_id) notes.push("repeat_id");
+  if (a.axes.aspect !== b.axes.aspect) notes.push("aspect_jump");
+  if (a.axes.color_temp !== b.axes.color_temp) notes.push("temp_jump");
+  if (a.axes.sequence_role === b.axes.sequence_role) notes.push("same_role");
+  return notes;
+}
+
+function gate(shot) {
+  if (!shot || !shot.shot_id) return {ok:false, reason:"no_shot"};
+  const applied = (shot.notes || "") + " " + JSON.stringify(shot.axes).toLowerCase();
+  for (const term of BANNED) {
+    if ((shot.notes || "").toLowerCase().includes(term))
+      return {ok:false, reason:"banned_motifs", detail:term};
+  }
+  const disc = (shot.axes.source_discipline || "").toLowerCase();
+  if (["strict","required","linked"].includes(disc)) {
+    const sources = shot.sources || {};
+    if (!Object.keys(sources).length)
+      return {ok:false, reason:"source_discipline", detail:"unlinked"};
+  }
+  return {ok:true};
+}
+
+function legal(shot) {
+  const g = gate(shot);
+  if (!g.ok) return g;
+  const role = shot.axes.sequence_role;
+  if (!SCENE.required.includes(role))
+    return {ok:false, reason:"wrong_role", detail:role};
+  if (taken.some(t => t.axes.sequence_role === role))
+    return {ok:false, reason:"role_taken", detail:role};
+  const subj = shot.axes.focal_subject || "";
+  const known = SCENE.subjects.some(s => subj === s || subj.includes(s) || s.includes(subj));
+  if (subj && !known) return {ok:false, reason:"unknown_subject", detail:subj};
+  if (shot.axes.color_temp && !SCENE.temps.includes(String(shot.axes.color_temp)))
+    return {ok:false, reason:"temp_out_of_scene", detail:String(shot.axes.color_temp)};
+  if (taken.length) {
+    const jumps = cutDiff(taken[taken.length-1], shot);
+    const hard = jumps.filter(j => j === "repeat_id" || j === "same_role");
+    if (hard.length) return {ok:false, reason:"illegal_cut", detail:hard.join(", ")};
+  }
+  return {ok:true};
+}
+
+function log(msg, cls) {
+  const el = document.getElementById("log");
+  el.textContent = msg;
+  el.className = "log " + (cls || "");
+}
+
+function render() {
+  document.getElementById("scene-name").textContent = SCENE.name;
+  document.getElementById("scene-copy").textContent = SCENE.copy;
+  const roles = document.getElementById("roles");
+  roles.innerHTML = "";
+  const have = new Set(taken.map(t => t.axes.sequence_role));
+  for (const r of SCENE.required) {
+    const d = document.createElement("div");
+    d.className = "role" + (have.has(r) ? " have" : "");
+    d.textContent = r;
+    roles.appendChild(d);
+  }
+  const deck = document.getElementById("deck");
+  deck.innerHTML = "";
+  for (const shot of DECK) {
+    const played = taken.some(t => t.shot_id === shot.shot_id);
+    const b = document.createElement("button");
+    b.className = "card";
+    b.disabled = played;
+    b.innerHTML = `
+      <p class="name">${shot.file}</p>
+      <p class="id">${shot.shot_id}${played ? " · played" : ""}</p>
+      <dl>
+        <dt>role</dt><dd>${shot.axes.sequence_role}</dd>
+        <dt>type / mm</dt><dd>${shot.axes.shot_type} · ${shot.axes.lens_mm}</dd>
+        <dt>move</dt><dd>${shot.axes.camera_move}</dd>
+        <dt>subject</dt><dd>${shot.axes.focal_subject}</dd>
+        <dt>temp / aspect</dt><dd>${shot.axes.color_temp} · ${shot.axes.aspect}</dd>
+      </dl>`;
+    b.addEventListener("click", () => play(shot));
+    deck.appendChild(b);
+  }
+  const win = document.getElementById("win");
+  if (taken.length === SCENE.required.length) {
+    win.classList.add("show");
+    document.getElementById("win-list").innerHTML = taken.map(t =>
+      `<li>${t.axes.sequence_role} · ${t.shot_id} · ${t.file}</li>`
+    ).join("");
+    log("COVERED", "ok");
+  } else {
+    win.classList.remove("show");
+  }
+}
+
+function play(shot) {
+  const r = legal(shot);
+  if (!r.ok) {
+    log("REFUSED " + r.reason + (r.detail ? " (" + r.detail + ")" : ""), "bad");
+    return;
+  }
+  taken.push(shot);
+  let msg = "OK " + shot.shot_id + "  role=" + shot.axes.sequence_role;
+  let cls = "ok";
+  if (taken.length >= 2) {
+    const jumps = cutDiff(taken[taken.length-2], shot);
+    msg += "  CUT " + (jumps.length ? jumps.join(", ") : "clean");
+    if (jumps.length) cls = "cut";
+  }
+  log(msg, cls);
+  render();
+}
+
+document.getElementById("reset").onclick = () => {
+  taken = [];
+  log("play a card. vibe is refused.");
+  render();
+};
+document.getElementById("diff").onclick = () => {
+  if (taken.length < 2) { log("NEED two plays"); return; }
+  const j = cutDiff(taken[taken.length-2], taken[taken.length-1]);
+  log("CUT " + (j.length ? j.join(", ") : "clean"), j.length ? "cut" : "ok");
+};
+render();
+</script>
+</body>
+</html>
