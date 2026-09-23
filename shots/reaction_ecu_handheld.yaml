@@ -1,0 +1,19 @@
+shot_type: ecu
+lens_mm: 85
+camera_move: handheld
+focal_subject: left eye + brow
+depth_layering: subject sharp / background dissolve
+light_logic: window-side key, bounce from page
+color_temp: 5600K
+frame_rate: 24
+aspect: "16:9"
+sound_design: room-tone only
+caption_density: sparse
+transition_type: cut
+sequence_role: reaction
+source_discipline: linked
+banned_motifs: []
+royalty_mode: original
+notes: "Hold until blink. Do not push in."
+sources:
+  axes: "on-set notes 2026-09-17"

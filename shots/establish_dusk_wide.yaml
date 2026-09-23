@@ -1,0 +1,20 @@
+# Named shot, not a house look.
+shot_type: establishing
+lens_mm: 24
+camera_move: static
+focal_subject: ridgeline-against-sky
+depth_layering: three-plane (foreground grass / mid ridge / sky)
+light_logic: dusk-key-from-west, no fill, silhouette-safe
+color_temp: 4200K
+frame_rate: 24
+aspect: "2.39:1"
+sound_design: wind-bed + distant birds, no score
+caption_density: none
+transition_type: cut
+sequence_role: establish
+source_discipline: linked
+banned_motifs: []
+royalty_mode: original
+notes: "Open on land before any face. No score swell."
+sources:
+  axes: "field observation; no licensed LUT"

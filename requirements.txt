@@ -1,0 +1,2 @@
+# optional
+# PyYAML>=6.0
